@@ -59,20 +59,6 @@ async def process_help_command(msg: types.Message):
     test.close()  ##############
     await msg.reply('Напиши "<u>Замотивируй меня</u>", и я выдам тебе мотивашку!', parse_mode="HTML")
 
-
-@dp.message_handler(Text(equals="Список"))  ##################
-async def echo_message(msg: types.Message):
-    time_now = datetime.now().strftime('%H:%M')  ######
-    print("Пользователь " + msg.chat.username + "(" + str(
-        msg.from_user.id) + ") обратился ко мне за списком в [" + time_now + "]")
-    if msg.from_user.id == 933846611 and msg.chat.username == adminName:
-        await msg.reply(
-            'Приветствую, <b> Г-н Администратор!</b>\nВот список пользователей, использовавших меня: ' + str(listUser),
-            parse_mode="HTML")
-    else:
-        await msg.reply('<b>Ты не администратор этого бота! Тебе нельзя использовать эту команду!</b>',
-                        parse_mode="HTML")
-
 @dp.message_handler(commands="send")  ##################
 async def echo_message(msg: types.Message):
     #time_now = datetime.now().strftime('%H:%M')  ######
